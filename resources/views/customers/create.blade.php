@@ -95,7 +95,7 @@
                   <div class="form-group row">
                 	<label for="infos" class="col-2 col-form-label">Σημείωση</label>
                 	<div class="col-10">
-                		<input class="form-control" type="text" name="infos" id="infos" >
+                		<textarea class="form-control" type="text" name="infos" id="infos" ></textarea>
                 	</div>
                 </div>
                 

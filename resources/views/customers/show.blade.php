@@ -12,17 +12,9 @@
 
 @section ('content')
 <hr>
-<div class="container">
-	<h3>Πελάτες</h3>
-	<a type="button" class="btn btn-success" href="{{ route('create') }}">Νέος Πελάτης</a>
-</div>
-		<hr>
-
-		<div class="col-md-6 col-md-offset-3">
-		<table class = "table table-striped" id="customers">
+	<div class="col-dm-6">
+			<table class = "table table-striped" id="customer">
 			<thread>
-			<input class="form-control mr-sm-2" type="text" placeholder="Αναζήτηση Πελάτη..." id="myInput" onkeyup="searchCustomers()">
-			<hr>
 				<tr>
 					<th>Όνομα</th>
 					<th>Επίθετο</th>
@@ -35,10 +27,10 @@
 					<th>Αριθμός</th>
 					<th>ΤΚ</th>
 					<th>Πληροφορίες</th>
+					<th>Δημιουργήθηκε</th>
 				</tr>
 			</thread>
-		@foreach($customers as $customer)
-			<tr>			 
+			<tr>	
 				<td align = "left">{{ $customer->name }}</td>
 				<td align = "left">{{ $customer->surname }}</td>
 				<td align = "left">{{ $customer->email }}</td>
@@ -50,30 +42,9 @@
 				<td align = "left">{{ $customer->roadNumber }}</td>
 				<td align = "left">{{ $customer->postalCode }}</td>
 				<td align = "left">{{ $customer->infos }}</td>
+				<td align = "left">{{ $customer->created_at->toFormattedDateString()}}</td>
 			</tr>
-		@endforeach
 	</table>
+</div>
 
-<script>
-function searchCustomers() {
-  // Declare variables 
-  var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("customers");
-  tr = table.getElementsByTagName("tr");
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    } 
-  }
-}
-</script>
 @endsection
