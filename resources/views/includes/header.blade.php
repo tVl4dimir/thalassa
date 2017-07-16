@@ -16,7 +16,7 @@
             <a class="nav-link" href="{{ route('products') }}">Προϊόντα</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Παραγγελίες</a>
+            <a class="nav-link" href="{{ route('orders') }}">Παραγγελίες</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="#">Βοήθεια</a>
