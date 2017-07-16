@@ -31,8 +31,20 @@ DELETE /customers/{id}
 
 Route::get('/', 'CustomersController@dashboard')->name('dashboard');
 
-Route::get('/customers', 'CustomersController@index')->name('show');
+Route::get('/orders','OrdersController@index')->name('orders');
 
-Route::get('/customers/create', 'CustomersController@create')->name('create');
+Route::get('/customers', 'CustomersController@index')->name('customers');
+
+Route::get('/customers/create', 'CustomersController@create')->name('createC');
+
+Route::get('/customers/{customer}', 'CustomersController@show');
 
 Route::post('/customers', 'CustomersController@store');
+
+Route::get('/products', 'ProductsController@index')->name('products');
+
+Route::get('/products/create', 'ProductsController@create')->name('createP');
+
+Route::get('/products/{product}', 'ProductsController@show');
+
+Route::post('/products', 'ProductsController@store');

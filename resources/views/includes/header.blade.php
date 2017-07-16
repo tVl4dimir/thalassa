@@ -10,10 +10,13 @@
             <a class="nav-link" href="{{ route('dashboard') }}">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="{{ route('show') }}">Πελάτες</a>
+            <a class="nav-link" href="{{ route('customers') }}">Πελάτες</a>
+          </li>
+           <li class="nav-item active">
+            <a class="nav-link" href="{{ route('products') }}">Προϊόντα</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Παραγγελίες</a>
+            <a class="nav-link" href="{{ route('orders') }}">Παραγγελίες</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="#">Βοήθεια</a>

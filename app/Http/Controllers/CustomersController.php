@@ -19,8 +19,9 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        $customers = Customer::all();
-        return view('customers.show', compact('customers'));
+        //$customers = Customer::all();
+        $customers = Customer::latest()->get();
+        return view('customers.index', compact('customers'));
     }
 
     /**
@@ -42,6 +43,22 @@ class CustomersController extends Controller
     public function store(Request $request)
     {
         
+        //validation
+        $this->validate(request(), [
+
+            'name' => 'bail|required|max:40',
+            'surname' => 'required|max:40',
+            'telephone' => 'max:10',
+            'mobile' => 'max:10',
+            'email' => 'email|required|unique:customers|max:40',
+            'city' => 'max:40',
+            'location' => 'max:40',
+            'road' => 'max:40',
+            'roadNumber' => 'max:5',
+            'postalCode' => 'max:5',
+            'infos' => 'max:255'
+            ]);
+
         $customer = new Customer;
         
         /*Customer::create([
@@ -88,9 +105,10 @@ class CustomersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Customer $customer)
     {
-        //
+
+        return view('customers.show', compact('customer'));
     }
 
     /**
